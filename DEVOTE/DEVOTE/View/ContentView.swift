@@ -42,8 +42,9 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
-            }
-        } detail: {
+            }//: TOOLBAR
+        }//: NAVIGATION
+        detail: {
             Text("Select an item")
         }
     }
