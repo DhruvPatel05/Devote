@@ -14,7 +14,8 @@ struct ContentView: View {
 
     @Query(sort: \Item.timestamp, order: .forward)
     private var items: [Item]
-
+    @State var task: String = ""
+    
     var body: some View {
         NavigationSplitView {
             List {
@@ -52,6 +53,10 @@ struct ContentView: View {
     private func addItem() {
         withAnimation {
             let newItem = Item(timestamp: Date())
+            newItem.timestamp = Date()
+            newItem.task = task
+            newItem.completion = false
+            newItem.id = UUID()
             modelContext.insert(newItem)
         }
     }
