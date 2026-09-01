@@ -54,9 +54,9 @@ struct ContentView: View {
         withAnimation {
             let newItem = Item(timestamp: Date())
             newItem.timestamp = Date()
-            newItem.task = task
-            newItem.completion = false
-            newItem.id = UUID()
+           // newItem.task = "Sample Task No"
+//            newItem.completion = false
+//            newItem.id = UUID()
             modelContext.insert(newItem)
         }
     }
