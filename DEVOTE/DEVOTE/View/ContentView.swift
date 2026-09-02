@@ -26,6 +26,17 @@ struct ContentView: View {
                             Color(UIColor.systemGray6)
                         )
                         .cornerRadius(10)
+                    Button(action: {
+                        addItem()
+                    }, label:{
+                        Text("SAVE")
+                        Spacer()
+                    })
+                    .padding()
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .background(Color.pink)
+                    .cornerRadius(10)
                 }//: VSTACK
                 .padding()
                 
@@ -43,7 +54,10 @@ struct ContentView: View {
                         }
                     }
                     .onDelete(perform: deleteItems)
-                }
+                }//:LIST
+            }//:VSTACK
+            .navigationBarTitle("Daily Tasks", displayMode:.large)
+            
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         EditButton()
@@ -56,7 +70,7 @@ struct ContentView: View {
                     }
                 }//: TOOLBAR
             }//: NAVIGATION
-        }
+        
             detail: {
                 Text("Select an item")
             }
@@ -67,8 +81,8 @@ struct ContentView: View {
         withAnimation {
             let newItem = Item(timestamp: Date())
             newItem.timestamp = Date()
-           // newItem.task = "Sample Task No"
-//            newItem.completion = false
+            newItem.task = task
+            newItem.completion = false
 //            newItem.id = UUID()
             modelContext.insert(newItem)
         }
