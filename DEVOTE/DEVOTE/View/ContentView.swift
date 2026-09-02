@@ -18,36 +18,49 @@ struct ContentView: View {
     
     var body: some View {
         NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text(
-                            "Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))"
+            VStack {
+                VStack(spacing: 16){
+                    TextField("New Task",text:$task)
+                        .padding()
+                        .background(
+                            Color(UIColor.systemGray6)
                         )
-                    } label: {
-                        Text(
-                            item.timestamp,
-                            format: Date.FormatStyle(date: .numeric, time: .standard)
-                        )
+                        .cornerRadius(10)
+                }//: VSTACK
+                .padding()
+                
+                List {
+                    ForEach(items) { item in
+                        NavigationLink {
+                            Text(
+                                "Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))"
+                            )
+                        } label: {
+                            Text(
+                                item.timestamp,
+                                format: Date.FormatStyle(date: .numeric, time: .standard)
+                            )
+                        }
                     }
+                    .onDelete(perform: deleteItems)
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        EditButton()
                     }
-                }
-            }//: TOOLBAR
-        }//: NAVIGATION
-        detail: {
-            Text("Select an item")
+                    
+                    ToolbarItem {
+                        Button(action: addItem) {
+                            Label("Add Item", systemImage: "plus")
+                        }
+                    }
+                }//: TOOLBAR
+            }//: NAVIGATION
         }
+            detail: {
+                Text("Select an item")
+            }
+        
     }
 
     private func addItem() {
