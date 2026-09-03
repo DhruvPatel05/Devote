@@ -16,7 +16,7 @@ struct ContentView: View {
     private var items: [Item]
 
     @State private var task: String = ""
-
+    private var isButtonDisabled: Bool { task.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
     var body: some View {
 
         NavigationSplitView {
@@ -43,14 +43,11 @@ struct ContentView: View {
                     .padding()
                     .font(.headline)
                     .foregroundColor(.white)
-                    .background(Color.pink)
+                    .background(isButtonDisabled ? Color.gray : Color.pink)
                     .cornerRadius(10)
                     .disabled(
-                        task.trimmingCharacters(
-                            in: .whitespacesAndNewlines
-                        ).isEmpty
+                        isButtonDisabled
                     )
-
                 }
                 .padding()
 
