@@ -79,10 +79,10 @@ struct ContentView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(timestamp: Date())
+            let newItem = Item(timestamp: Date(), task: String())
             newItem.timestamp = Date()
             newItem.task = task
-            newItem.completion = false
+//            newItem.completion = false
 //            newItem.id = UUID()
             modelContext.insert(newItem)
         }
@@ -97,7 +97,10 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+                    .modelContainer(for: Item.self, inMemory: true)
+    }
 }
+
