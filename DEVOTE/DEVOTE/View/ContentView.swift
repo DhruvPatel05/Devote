@@ -14,82 +14,122 @@ struct ContentView: View {
 
     @Query(sort: \Item.timestamp, order: .forward)
     private var items: [Item]
-    @State var task: String = ""
-    
+
+    @State private var task: String = ""
+
     var body: some View {
+
         NavigationSplitView {
+
             VStack {
-                VStack(spacing: 16){
-                    TextField("New Task",text:$task)
+
+                // MARK: - NEW TASK
+                VStack(spacing: 16) {
+
+                    TextField("New Task", text: $task)
                         .padding()
                         .background(
                             Color(UIColor.systemGray6)
                         )
                         .cornerRadius(10)
-                    Button(action: {
-                        addItem()
-                    }, label:{
-                        Text("SAVE")
-                        Spacer()
-                    })
+
+                    Button(action: addItem) {
+
+                        HStack {
+                            Text("SAVE")
+                            Spacer()
+                        }
+                    }
                     .padding()
                     .font(.headline)
                     .foregroundColor(.white)
                     .background(Color.pink)
                     .cornerRadius(10)
-                }//: VSTACK
+                    .disabled(
+                        task.trimmingCharacters(
+                            in: .whitespacesAndNewlines
+                        ).isEmpty
+                    )
+
+                }
                 .padding()
-                
+
+                // MARK: - TASK LIST
                 List {
+
                     ForEach(items) { item in
+
                         NavigationLink {
-                            Text(
-                                "Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))"
-                            )
+
+                            VStack {
+                                Text(item.task)
+
+                                Text(
+                                    item.timestamp,
+                                    format: Date.FormatStyle(
+                                        date: .numeric,
+                                        time: .standard
+                                    )
+                                )
+                            }
+
                         } label: {
-                            Text(
-                                item.timestamp,
-                                format: Date.FormatStyle(date: .numeric, time: .standard)
-                            )
+
+                            Text(item.task)
+
                         }
                     }
                     .onDelete(perform: deleteItems)
-                }//:LIST
-            }//:VSTACK
-            .navigationBarTitle("Daily Tasks", displayMode:.large)
-            
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButton()
-                    }
-                    
-                    ToolbarItem {
-                        Button(action: addItem) {
-                            Label("Add Item", systemImage: "plus")
-                        }
-                    }
-                }//: TOOLBAR
-            }//: NAVIGATION
-        
-            detail: {
-                Text("Select an item")
+                }
             }
-        
-    }
+            .navigationTitle("Daily Tasks")
+            .toolbar {
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date(), task: String())
-            newItem.timestamp = Date()
-            newItem.task = task
-//            newItem.completion = false
-//            newItem.id = UUID()
-            modelContext.insert(newItem)
+                ToolbarItem(
+                    placement: .navigationBarTrailing
+                ) {
+                    EditButton()
+                }
+            }
+
+        } detail: {
+
+            Text("Select a task")
+
         }
     }
 
-    private func deleteItems(offsets: IndexSet) {
+    // MARK: - ADD TASK
+
+    private func addItem() {
+
+        let trimmedTask = task.trimmingCharacters(
+            in: .whitespacesAndNewlines
+        )
+
+        guard !trimmedTask.isEmpty else {
+            return
+        }
+
         withAnimation {
+
+            let newItem = Item(
+                timestamp: Date(),
+                task: trimmedTask
+            )
+
+            modelContext.insert(newItem)
+
+            task = ""
+        }
+    }
+
+    // MARK: - DELETE TASK
+
+    private func deleteItems(offsets: IndexSet) {
+
+        withAnimation {
+
             for index in offsets {
                 modelContext.delete(items[index])
             }
@@ -97,10 +137,17 @@ struct ContentView: View {
     }
 }
 
+
+// MARK: - PREVIEW
+
 struct ContentView_Previews: PreviewProvider {
+
     static var previews: some View {
+
         ContentView()
-                    .modelContainer(for: Item.self, inMemory: true)
+            .modelContainer(
+                for: Item.self,
+                inMemory: true
+            )
     }
 }
-
