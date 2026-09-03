@@ -61,8 +61,10 @@ struct ContentView: View {
 
                         NavigationLink {
 
-                            VStack {
-                                Text(item.task)
+                            VStack (alignment: .leading){
+                                Text(item.task ?? "")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
 
                                 Text(
                                     item.timestamp,
