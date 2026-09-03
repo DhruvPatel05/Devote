@@ -11,8 +11,10 @@ import SwiftData
 @Model
 final class Item {
     var timestamp: Date
+    var task: String
     
-    init(timestamp: Date) {
+    init(timestamp: Date,task: String) {
         self.timestamp = timestamp
+        self.task = task
     }
 }
