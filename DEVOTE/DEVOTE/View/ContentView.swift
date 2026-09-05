@@ -120,6 +120,7 @@ struct ContentView: View {
             modelContext.insert(newItem)
 
             task = ""
+            hideKeyboard()
         }
     }
 
