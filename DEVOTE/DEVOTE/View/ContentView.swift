@@ -20,65 +20,66 @@ struct ContentView: View {
     var body: some View {
 
         NavigationSplitView {
-
-            VStack {
-
-                // MARK: - NEW TASK
-                VStack(spacing: 16) {
-
-                    TextField("New Task", text: $task)
-                        .padding()
-                        .background(
-                            Color(UIColor.systemGray6)
-                        )
-                        .cornerRadius(10)
-
-                    Button(action: addItem) {
-
-                        HStack {
-                            Text("SAVE")
-                            Spacer()
+            ZStack {
+                VStack {
+                    
+                    // MARK: - NEW TASK
+                    VStack(spacing: 16) {
+                        
+                        TextField("New Task", text: $task)
+                            .padding()
+                            .background(
+                                Color(UIColor.systemGray6)
+                            )
+                            .cornerRadius(10)
+                        
+                        Button(action: addItem) {
+                            
+                            HStack {
+                                Text("SAVE")
+                                Spacer()
+                            }
                         }
+                        .padding()
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .background(isButtonDisabled ? Color.gray : Color.pink)
+                        .cornerRadius(10)
+                        .disabled(
+                            isButtonDisabled
+                        )
                     }
                     .padding()
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .background(isButtonDisabled ? Color.gray : Color.pink)
-                    .cornerRadius(10)
-                    .disabled(
-                        isButtonDisabled
-                    )
-                }
-                .padding()
-
-                // MARK: - TASK LIST
-                List {
-
-                    ForEach(items) { item in
-
-                        NavigationLink {
-
-                            VStack (alignment: .leading){
-                                Text(item.task ?? "")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-
-                                Text(
-                                    item.timestamp,
-                                    format: Date.FormatStyle(
-                                        date: .numeric,
-                                        time: .standard
+                    
+                    // MARK: - TASK LIST
+                    List {
+                        
+                        ForEach(items) { item in
+                            
+                            NavigationLink {
+                                
+                                VStack (alignment: .leading){
+                                    Text(item.task ?? "")
+                                        .font(.headline)
+                                        .fontWeight(.bold)
+                                    
+                                    Text(
+                                        item.timestamp,
+                                        format: Date.FormatStyle(
+                                            date: .numeric,
+                                            time: .standard
+                                        )
                                     )
-                                )
+                                }
+                                
+                            } label: {
+                                
+                                Text(item.task)
+                                
                             }
-
-                        } label: {
-
-                            Text(item.task)
-
                         }
+                        .onDelete(perform: deleteItems)
                     }
-                    .onDelete(perform: deleteItems)
                 }
             }
             .navigationTitle("Daily Tasks")
