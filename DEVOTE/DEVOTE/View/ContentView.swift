@@ -80,8 +80,13 @@ struct ContentView: View {
                         }
                         .onDelete(perform: deleteItems)
                     }
-                    
+                    .listStyle(InsetGroupedListStyle())
+                    .shadow(color: Color.init(red: 0, green: 0, blue: 0,opacity: 0.3), radius: 12)
+                    .padding(.vertical,0)
                 }
+            }
+            .onAppear(){
+                UITableView.appearance().backgroundColor = .clear
             }
             .navigationTitle("Daily Tasks")
             .toolbar {
