@@ -80,6 +80,7 @@ struct ContentView: View {
                         }
                         .onDelete(perform: deleteItems)
                     }
+                    
                 }
             }
             .navigationTitle("Daily Tasks")
@@ -91,7 +92,9 @@ struct ContentView: View {
                     EditButton()
                 }
             }
-
+            .background(
+                backgroundGradient.ignoresSafeArea(.all)
+            )
         } detail: {
 
             Text("Select a task")
