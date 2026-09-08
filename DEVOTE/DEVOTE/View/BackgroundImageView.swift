@@ -9,10 +9,17 @@ import SwiftUI
 
 struct BackgroundImageView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image("rocket")
+            .antialiased(true)
+            .resizable()
+            .scaledToFill()
+            .ignoresSafeArea(.all)
     }
 }
 
-#Preview {
-    BackgroundImageView()
+
+struct BackgroundImageView_Previews: PreviewProvider {
+    static var previews: some View {
+        BackgroundImageView()
+    }
 }
