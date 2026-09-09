@@ -98,6 +98,9 @@ struct ContentView: View {
                 }
             }
             .background(
+                BackgroundImageView()
+            )
+            .background(
                 backgroundGradient.ignoresSafeArea(.all)
             )
         } detail: {
