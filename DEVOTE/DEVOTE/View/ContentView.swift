@@ -16,7 +16,6 @@ struct ContentView: View {
     private var items: [Item]
 
     @State private var task: String = ""
-    private var isButtonDisabled: Bool { task.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
     var body: some View {
 
         NavigationSplitView {
@@ -24,32 +23,6 @@ struct ContentView: View {
                 VStack {
                     
                     // MARK: - NEW TASK
-                    VStack(spacing: 16) {
-                        
-                        TextField("New Task", text: $task)
-                            .padding()
-                            .background(
-                                Color(UIColor.systemGray6)
-                            )
-                            .cornerRadius(10)
-                        
-                        Button(action: addItem) {
-                            
-                            HStack {
-                                Text("SAVE")
-                                Spacer()
-                            }
-                        }
-                        .padding()
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .background(isButtonDisabled ? Color.gray : Color.pink)
-                        .cornerRadius(10)
-                        .disabled(
-                            isButtonDisabled
-                        )
-                    }
-                    .padding()
                     
                     // MARK: - TASK LIST
                     List {
