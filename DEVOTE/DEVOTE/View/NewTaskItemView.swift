@@ -9,12 +9,68 @@ import SwiftUI
 
 struct NewTaskItemView: View {
     // MARK: - PROPERTY
+    private var isButtonDisabled: Bool { task.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+
+    // MARK: -  FUNCTION
+    private func addItem() {
+
+        let trimmedTask = task.trimmingCharacters(
+            in: .whitespacesAndNewlines
+        )
+
+        guard !trimmedTask.isEmpty else {
+            return
+        }
+
+        withAnimation {
+
+            let newItem = Item(
+                timestamp: Date(),
+                task: trimmedTask
+            )
+
+            modelContext.insert(newItem)
+
+            task = ""
+            hideKeyboard()
+        }
+    }
     
-    
+
     
     // MARK: -  BODY
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Spacer()
+            VStack(spacing: 16) {
+                
+                TextField("New Task", text: $task)
+                    .padding()
+                    .background(
+                        Color(UIColor.systemGray6)
+                    )
+                    .cornerRadius(10)
+                
+                Button(action: addItem) {
+                    
+                    HStack {
+                        Text("SAVE")
+                        Spacer()
+                    }
+                }
+                .padding()
+                .font(.headline)
+                .foregroundColor(.white)
+                .background(isButtonDisabled ? Color.gray : Color.pink)
+                .cornerRadius(10)
+                .disabled(
+                    isButtonDisabled
+                )
+            }
+            .padding()
+
+        }//: VSTACK
+        
     }
 }
 
