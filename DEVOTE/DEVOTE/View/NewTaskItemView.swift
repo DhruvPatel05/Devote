@@ -13,7 +13,7 @@ struct NewTaskItemView: View {
     private var isButtonDisabled: Bool { task.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
     @Environment(\.managedObjectContext) private var viewContext
     @State private var task: String = ""
-
+    @State private var showNewTaskItem: Bool = false
     // MARK: -  FUNCTION
     private func addItem() {
 
@@ -60,13 +60,13 @@ struct NewTaskItemView: View {
                     
                     HStack {
                         Text("SAVE")
+                            .font(.system(size: 24, weight: .bold, design: .rounded))
                         Spacer()
                     }
                 }
                 .padding()
-                .font(.headline)
                 .foregroundColor(.white)
-                .background(isButtonDisabled ? Color.gray : Color.pink)
+                .background(isButtonDisabled ? Color.blue : Color.pink)
                 .cornerRadius(10)
                 .disabled(
                     isButtonDisabled
