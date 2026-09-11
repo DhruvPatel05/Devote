@@ -48,6 +48,8 @@ struct NewTaskItemView: View {
             VStack(spacing: 16) {
                 
                 TextField("New Task", text: $task)
+                    .foregroundColor(.pink)
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
                     .padding()
                     .background(
                         Color(UIColor.systemGray6)
