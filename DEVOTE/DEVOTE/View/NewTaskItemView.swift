@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NewTaskItemView: View {
     // MARK: - PROPERTY
     private var isButtonDisabled: Bool { task.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
+    @Environment(\.managedObjectContext) private var viewContext
+    @State private var task: String = ""
 
     // MARK: -  FUNCTION
     private func addItem() {
@@ -67,7 +70,8 @@ struct NewTaskItemView: View {
                     isButtonDisabled
                 )
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.vertical,20)
 
         }//: VSTACK
         
