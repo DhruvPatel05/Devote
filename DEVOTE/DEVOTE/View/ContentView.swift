@@ -20,9 +20,12 @@ struct ContentView: View {
 
         NavigationSplitView {
             ZStack {
+                // MARK: -  MAIN VIEW
                 VStack {
+                    // MARK: -  HEADER
+
+                    // MARK: - NEW TASK BUTTON
                     
-                    // MARK: - NEW TASK
                     
                     // MARK: - TASK LIST
                     List {
