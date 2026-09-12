@@ -14,6 +14,7 @@ struct ContentView: View {
 
     @Query(sort: \Item.timestamp, order: .forward)
     private var items: [Item]
+    @State private var showNewTaskItem: Bool = false
 
     @State private var task: String = ""
     var body: some View {
@@ -59,8 +60,12 @@ struct ContentView: View {
                     .listStyle(InsetGroupedListStyle())
                     .shadow(color: Color.init(red: 0, green: 0, blue: 0,opacity: 0.3), radius: 12)
                     .padding(.vertical,0)
+                    .frame(maxWidth:640)
+                }//: VSTACK
+                if showNewTaskItem {
+                NewTaskItemView()
                 }
-            }
+            }//: ZSTACK
             .onAppear(){
                 UITableView.appearance().backgroundColor = .clear
             }
