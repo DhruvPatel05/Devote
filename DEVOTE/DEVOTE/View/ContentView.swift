@@ -63,6 +63,12 @@ struct ContentView: View {
                     .frame(maxWidth:640)
                 }//: VSTACK
                 if showNewTaskItem {
+                BlankView()
+                        .onTapGesture {
+                            withAnimation() {
+                                showNewTaskItem = false
+                            }
+                        }
                 NewTaskItemView()
                 }
             }//: ZSTACK
