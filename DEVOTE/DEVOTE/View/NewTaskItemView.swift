@@ -14,6 +14,7 @@ struct NewTaskItemView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var task: String = ""
     @State private var showNewTaskItem: Bool = false
+    @Binding var isShowing: Bool
     // MARK: -  FUNCTION
     private func addItem() {
 
@@ -36,6 +37,8 @@ struct NewTaskItemView: View {
 
             task = ""
             hideKeyboard()
+            isShowing = false
+            
         }
     }
     
@@ -87,7 +90,7 @@ struct NewTaskItemView: View {
 
 struct NewTaskItemView_Previews: PreviewProvider {
     static var previews: some View {
-        NewTaskItemView()
+        NewTaskItemView(isShowing: .constant(true))
             .previewDevice(PreviewDevice("iPhone 12 Pro"))
             .background(Color.gray.edgesIgnoringSafeArea(.all))
     }
