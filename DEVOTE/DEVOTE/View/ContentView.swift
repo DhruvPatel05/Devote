@@ -76,14 +76,15 @@ struct ContentView: View {
                 UITableView.appearance().backgroundColor = .clear
             }
             .navigationTitle("Daily Tasks")
-            .toolbar {
-
-                ToolbarItem(
-                    placement: .navigationBarTrailing
-                ) {
-                    EditButton()
-                }
-            }
+//            .toolbar {
+//
+//                ToolbarItem(
+//                    placement: .navigationBarTrailing
+//                ) {
+//                    EditButton()
+//                }
+//            }
+            .navigationBarHidden(true)
             .background(
                 BackgroundImageView()
             )
