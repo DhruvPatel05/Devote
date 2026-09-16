@@ -24,7 +24,9 @@ struct ContentView: View {
                 // MARK: -  MAIN VIEW
                 VStack {
                     // MARK: -  HEADER
-
+                    HStack(spacing:10) {
+                        
+                    }.padding()
                     // MARK: - NEW TASK BUTTON
                     
                     
