@@ -25,6 +25,18 @@ struct ContentView: View {
                 VStack {
                     // MARK: -  HEADER
                     HStack(spacing:10) {
+                        //: TITlE
+                        Text("Devote")
+                            .font(.system(.largeTitle,design: .rounded))
+                            .fontWeight(.heavy)
+                            .padding(.leading,4)
+                        //: EDIT BUTTON
+                        EditButton()
+                            .font(.system(size: 16,weight:.semibold,design: .rounded))
+                            .padding(.horizontal,10)
+                            .frame(minWidth: 70,maxWidth: 24)
+                        //: APPEARNCE BUTTON
+                        //: HSTACK
                         
                     }.padding()
                         .foregroundColor(.white)
