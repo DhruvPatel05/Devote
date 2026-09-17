@@ -27,6 +27,7 @@ struct ContentView: View {
                     HStack(spacing:10) {
                         
                     }.padding()
+                        .foregroundColor(.white)
                     // MARK: - NEW TASK BUTTON
                     
                     
@@ -77,7 +78,7 @@ struct ContentView: View {
             .onAppear(){
                 UITableView.appearance().backgroundColor = .clear
             }
-            .navigationTitle("Daily Tasks")
+            .navigationBarTitle("Daily Tasks",displayMode:.large)
 //            .toolbar {
 //
 //                ToolbarItem(
