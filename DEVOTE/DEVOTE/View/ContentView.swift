@@ -9,7 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-
+    // MARK: -  PROPERTY
+    
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @Environment(\.modelContext) private var modelContext
 
     @Query(sort: \Item.timestamp, order: .forward)
@@ -35,7 +37,19 @@ struct ContentView: View {
                             .font(.system(size: 16,weight:.semibold,design: .rounded))
                             .padding(.horizontal,10)
                             .frame(minWidth: 70,maxWidth: 24)
+                            .background(
+                                Capsule().stroke(Color.white,lineWidth: 2)
+                            )
                         //: APPEARNCE BUTTON
+                        Button(action: {
+                            
+                        }, label: {
+                            Image(systemName: "moon.circle")
+                                .resizable()
+                                .frame(width: 24,height: 24)
+                                .font(.system(.title,design: .rounded))
+                        }
+                        )
                         //: HSTACK
                         
                     }.padding()
