@@ -42,9 +42,9 @@ struct ContentView: View {
                             )
                         //: APPEARNCE BUTTON
                         Button(action: {
-                            
+                            isDarkMode.toggle()
                         }, label: {
-                            Image(systemName: "moon.circle")
+                            Image(systemName: isDarkMode ? "moon.circle.fill" : "moon.circle")
                                 .resizable()
                                 .frame(width: 24,height: 24)
                                 .font(.system(.title,design: .rounded))
