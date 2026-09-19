@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct DEVOTEApp: App {
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -26,6 +27,8 @@ struct DEVOTEApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext,persistenceController.container.viewContext)
+                .preferredColorScheme(isDarkMode ? .dark : .light)
         }
         .modelContainer(sharedModelContainer)
     }
