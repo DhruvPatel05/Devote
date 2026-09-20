@@ -10,6 +10,7 @@ import SwiftData
 
 struct NewTaskItemView: View {
     // MARK: - PROPERTY
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     private var isButtonDisabled: Bool { task.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
     @Environment(\.managedObjectContext) private var viewContext
     @State private var task: String = ""
