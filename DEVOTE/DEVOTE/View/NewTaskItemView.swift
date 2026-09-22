@@ -12,7 +12,8 @@ struct NewTaskItemView: View {
     // MARK: - PROPERTY
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     private var isButtonDisabled: Bool { task.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
-    @Environment(\.managedObjectContext) private var viewContext
+//    @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.modelContext) private var modelContext
     @State private var task: String = ""
     @State private var showNewTaskItem: Bool = false
     @Binding var isShowing: Bool
