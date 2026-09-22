@@ -27,7 +27,6 @@ struct DEVOTEApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext,persistenceController.container.viewContext)
                 .preferredColorScheme(isDarkMode ? .dark : .light)
         }
         .modelContainer(sharedModelContainer)
