@@ -6,18 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ListRowItemView: View {
-    
-    @Environment(\.managedObjectContext) var viewContext
-    @ObservableObject var item: Item
-    
+
+    @Bindable var item: Item
+
     var body: some View {
         Toggle(isOn: $item.completion) {
-            Text(item.task ?? "")
-                .font(.system(.title2,design: .rounded))
+            Text(item.task)
+                .font(.system(.title2, design: .rounded))
                 .fontWeight(.heavy)
-                .foregroundColor(item.completion ? Color.pink : Color.primary)
+                .foregroundStyle(item.completion ? .pink : .primary)
         }
     }
 }
