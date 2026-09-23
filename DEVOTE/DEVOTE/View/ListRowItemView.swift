@@ -11,7 +11,8 @@ import SwiftData
 struct ListRowItemView: View {
 
     @Bindable var item: Item
-
+    @Environment(\.managedObjectContext) var viewContext
+    
     var body: some View {
         Toggle(isOn: $item.completion) {
             Text(item.task)
@@ -21,5 +22,8 @@ struct ListRowItemView: View {
                 .padding(.vertical,12)
                 .animation(.default)
         } //: TOGGLE
+        .onChange(of: item.completion) {
+            print(item.completion)
+        }
     }
 }
