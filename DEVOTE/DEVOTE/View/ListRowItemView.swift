@@ -18,6 +18,8 @@ struct ListRowItemView: View {
                 .font(.system(.title2, design: .rounded))
                 .fontWeight(.heavy)
                 .foregroundStyle(item.completion ? .pink : .primary)
-        }
+                .padding(.vertical,12)
+                .animation(.default)
+        } //: TOGGLE
     }
 }
