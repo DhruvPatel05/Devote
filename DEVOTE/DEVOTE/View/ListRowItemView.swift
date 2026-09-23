@@ -24,6 +24,9 @@ struct ListRowItemView: View {
         } //: TOGGLE
         .onChange(of: item.completion) {
             print(item.completion)
+            if self.viewContext.hasChanges {
+                try?self.viewContext.save()
+            }
         }
     }
 }
