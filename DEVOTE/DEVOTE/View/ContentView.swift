@@ -62,27 +62,28 @@ struct ContentView: View {
                         
                         ForEach(items) { item in
                             
-                            NavigationLink {
+//                            NavigationLink {
+//                                
+//                                VStack (alignment: .leading){
+//                                    Text(item.task ?? "")
+//                                        .font(.headline)
+//                                        .fontWeight(.bold)
+//                                    
+//                                    Text(
+//                                        item.timestamp,
+//                                        format: Date.FormatStyle(
+//                                            date: .numeric,
+//                                            time: .standard
+//                                        )
+//                                    )
+//                                }
+//                                
+//                            } label: {
                                 
-                                VStack (alignment: .leading){
-                                    Text(item.task ?? "")
-                                        .font(.headline)
-                                        .fontWeight(.bold)
-                                    
-                                    Text(
-                                        item.timestamp,
-                                        format: Date.FormatStyle(
-                                            date: .numeric,
-                                            time: .standard
-                                        )
-                                    )
-                                }
-                                
-                            } label: {
-                                
-                                Text(item.task)
-                                
-                            }
+//                                Text(item.task)
+//                                
+//                            }
+                            ListRowItemView(item: item)
                         }
                         .onDelete(perform: deleteItems)
                     }
