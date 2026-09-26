@@ -14,6 +14,8 @@ struct CheckboxStyle: View {
 
 struct CheckboxStyle_Previews: PreviewProvider {
     static var previews: some View {
-        CheckboxStyle()
+        Toggle("Placeholder label", isOn: .constant(true))
+            .padding()
+            .previewLayout(.sizeThatFits)
     }
 }
