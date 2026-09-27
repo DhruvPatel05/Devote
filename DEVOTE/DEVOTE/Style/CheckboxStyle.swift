@@ -6,7 +6,13 @@
 //
 import SwiftUI
 
-struct CheckboxStyle: View {
+struct CheckboxStyle: ToggleStyle {
+    func makeBody(configuration: Self..Configuration) -> some View {
+    return HStack {
+        Image(systemName: configuration.isOn ? "checkmark.circle.fill": "circle" )
+            .foregroundColor(configuration.isOn ? .pink : .primary)
+        }
+    }
     var body: some View {
         Text("Hello, World!")
     }
