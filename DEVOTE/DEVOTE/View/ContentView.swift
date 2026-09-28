@@ -93,7 +93,7 @@ struct ContentView: View {
                     .frame(maxWidth:640)
                 }//: VSTACK
                 if showNewTaskItem {
-                BlankView()
+                    BlankView(backgroundColor: Color.black, backgroundOpacity: 0.3)
                         .onTapGesture {
                             withAnimation() {
                                 showNewTaskItem = false
