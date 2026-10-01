@@ -62,14 +62,15 @@ struct NewTaskItemView: View {
                     )
                     .cornerRadius(10)
                 
-                Button(action: addItem) {
-                    
-                    HStack {
-                        Text("SAVE")
-                            .font(.system(size: 24, weight: .bold, design: .rounded))
-                        Spacer()
-                    }
-                }
+                Button(action: {
+                    addItem()
+                    playSound(sound: "sound-ding", type: "mp3")
+                }, label: {
+                    Spacer()
+                    Text("SAVE")
+                        .font(.system(size: 24, weight: .bold, design: .rounded))
+                    Spacer()
+                })
                 .padding()
                 .foregroundColor(.white)
                 .background(isButtonDisabled ? Color.blue : Color.pink)
@@ -77,7 +78,7 @@ struct NewTaskItemView: View {
                 .disabled(
                     isButtonDisabled
                 )
-            }
+                }
             .padding(.horizontal)
             .padding(.vertical,20)
             .background(
