@@ -120,6 +120,7 @@ struct ContentView: View {
             .navigationBarHidden(true)
             .background(
                 BackgroundImageView()
+                    .blur(radius: showNewTaskItem ? 8.0 : 0, opaque: false)
             )
             .background(
                 backgroundGradient.ignoresSafeArea(.all)
