@@ -78,6 +78,11 @@ struct NewTaskItemView: View {
                 .disabled(
                     isButtonDisabled
                 )
+                .onTapGesture {
+                    if isButtonDisabled {
+                        playSound(sound: "sound-tap", type: "mp3")
+                    }
+                }
                 }
             .padding(.horizontal)
             .padding(.vertical,20)
