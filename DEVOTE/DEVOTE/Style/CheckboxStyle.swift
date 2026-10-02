@@ -19,6 +19,9 @@ struct CheckboxStyle: ToggleStyle {
                               design: .rounded))
                 .onTapGesture {
                     configuration.isOn.toggle()
+                    if configuration.isOn {
+                        playSound(sound: "sound-rise", type: "mp3")
+                    }
                 }
             
             configuration.label
