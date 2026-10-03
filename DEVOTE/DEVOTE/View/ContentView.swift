@@ -44,6 +44,7 @@ struct ContentView: View {
                         Button(action: {
                             isDarkMode.toggle()
                             playSound(sound: "sound-tap", type: "mp3")
+                            feedback.notificationOccurred(.success)
                         }, label: {
                             Image(systemName: isDarkMode ? "moon.circle.fill" : "moon.circle")
                                 .resizable()
