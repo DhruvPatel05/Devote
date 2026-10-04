@@ -58,7 +58,15 @@ struct ContentView: View {
                         .foregroundColor(.white)
                     // MARK: - NEW TASK BUTTON
                     
-                    
+                    Button(action: {
+                        showNewTaskItem = true
+                        playSound(sound: "sound-ding", type: "mp3")
+                        feedback.notificationOccurred(.success)
+                    },
+                        label: {
+                        Image(systemName: "plus.circle").font(.system(size: 30,weight: .semibold,design: .rounded))
+                        Text("New Task").font(.system(size: 24,weight: .bold,design: .rounded))
+                    })
                     // MARK: - TASK LIST
                     List {
                         
