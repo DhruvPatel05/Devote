@@ -67,6 +67,14 @@ struct ContentView: View {
                         Image(systemName: "plus.circle").font(.system(size: 30,weight: .semibold,design: .rounded))
                         Text("New Task").font(.system(size: 24,weight: .bold,design: .rounded))
                     })
+                    .foregroundColor(.white)
+                    .padding(.horizontal,20)
+                    .padding(.vertical,15)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors:[Color.pink,Color.blue]), startPoint: .leading, endPoint: .trailing)
+                            .clipShape(Capsule())
+                    )
+                    .shadow(color:Color(red: 0.00, green: 0, blue: 0,opacity: 0.25),radius:8,x:0.0,y:4.0)
                     // MARK: - TASK LIST
                     List {
                         
