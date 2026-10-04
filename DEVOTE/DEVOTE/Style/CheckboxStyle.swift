@@ -19,6 +19,7 @@ struct CheckboxStyle: ToggleStyle {
                               design: .rounded))
                 .onTapGesture {
                     configuration.isOn.toggle()
+                    feedback.notificationOccurred(.success)
                     if configuration.isOn {
                         playSound(sound: "sound-rise", type: "mp3")
                     }else {
