@@ -80,6 +80,12 @@ extension ConfigurationAppIntent {
     }
 }
 
+struct DevoteWidget_Previews: PreviewProvider {
+    static var previews: some View {
+        DevoteWidgetEntryView(entry:SimpleEntry(date:Date(), configuration: ConfigurationAppIntent()))
+            .previewContext(WidgetPreviewContext(family:.systemSmall))
+    }
+}
 #Preview(as: .systemSmall) {
     DevoteWidget()
 } timeline: {
