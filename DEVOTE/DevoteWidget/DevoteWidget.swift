@@ -82,8 +82,16 @@ extension ConfigurationAppIntent {
 
 struct DevoteWidget_Previews: PreviewProvider {
     static var previews: some View {
-        DevoteWidgetEntryView(entry:SimpleEntry(date:Date(), configuration: ConfigurationAppIntent()))
-            .previewContext(WidgetPreviewContext(family:.systemSmall))
+        Group {
+            DevoteWidgetEntryView(entry:SimpleEntry(date:Date(), configuration: ConfigurationAppIntent()))
+                .previewContext(WidgetPreviewContext(family:.systemSmall))
+            DevoteWidgetEntryView(entry:SimpleEntry(date:Date(), configuration: ConfigurationAppIntent()))
+                .previewContext(WidgetPreviewContext(family:.systemMedium))
+            DevoteWidgetEntryView(entry:SimpleEntry(date:Date(), configuration: ConfigurationAppIntent()))
+                .previewContext(WidgetPreviewContext(family:.systemLarge))
+
+
+        }
     }
 }
 #Preview(as: .systemSmall) {
