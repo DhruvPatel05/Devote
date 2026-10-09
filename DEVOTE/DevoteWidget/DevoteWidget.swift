@@ -62,7 +62,8 @@ struct DevoteWidget: Widget {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             DevoteWidgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
-        }
+        }.configurationDisplayName("Devote Launcher")
+            .description("This is an example of a widget for the personal task manager app.")
     }
 }
 
