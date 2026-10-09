@@ -60,6 +60,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FC88A6383078AF4E007B112D /* Exceptions for "DEVOTE" folder in "DevoteWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Utility/Constant.swift,
+			);
+			target = FC8D552330735992005CC832 /* DevoteWidgetExtension */;
+		};
 		FC8D553E30735995005CC832 /* Exceptions for "DevoteWidget" folder in "DevoteWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -81,6 +88,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				FCF74FA33043DE5000ECB0AD /* Exceptions for "DEVOTE" folder in "DEVOTE" target */,
+				FC88A6383078AF4E007B112D /* Exceptions for "DEVOTE" folder in "DevoteWidgetExtension" target */,
 			);
 			path = DEVOTE;
 			sourceTree = "<group>";
