@@ -45,6 +45,11 @@ struct DevoteWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
+        ZStack {
+            backgroundGradient
+            Image("rocket-small")
+                .resizable()
+        }
         VStack {
             Text("Time:")
             Text(entry.date, style: .time)
