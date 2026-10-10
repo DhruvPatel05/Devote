@@ -49,6 +49,9 @@ struct DevoteWidgetEntryView : View {
             backgroundGradient
             Image("rocket-small")
                 .resizable()
+                .scaledToFit()
+            Image("logo")
+                .resizable()
         }
         VStack {
             Text("Time:")
