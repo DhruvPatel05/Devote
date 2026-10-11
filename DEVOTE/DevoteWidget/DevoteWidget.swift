@@ -45,15 +45,24 @@ struct DevoteWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        ZStack {
-            backgroundGradient
-            Image("rocket-small")
-                .resizable()
-                .scaledToFit()
-            Image("logo")
-                .resizable()
-                .frame(width:36,height: 36)
-        }
+        GeometryReader { geometry in
+            ZStack {
+                backgroundGradient
+                Image("rocket-small")
+                    .resizable()
+                    .scaledToFit()
+                Image("logo")
+                    .resizable()
+                    .frame(width:36,height: 36)
+                    .offset(
+                    x: (geometry.size.width / 2) - 20,
+                    y: (geometry.size.height / -2 ) + 20
+                    )
+                    .padding(.top, 12)
+                    .padding(.trailing,12)
+                Text("Just Do It")
+            } // ZStack
+        } // Geometry
 //        VStack {
 //            Text("Time:")
 //            Text(entry.date, style: .time)
