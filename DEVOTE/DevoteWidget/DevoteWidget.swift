@@ -52,14 +52,15 @@ struct DevoteWidgetEntryView : View {
                 .scaledToFit()
             Image("logo")
                 .resizable()
+                .frame(width:36,height: 36)
         }
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
-        }
+//        VStack {
+//            Text("Time:")
+//            Text(entry.date, style: .time)
+//
+//            Text("Favorite Emoji:")
+//            Text(entry.configuration.favoriteEmoji)
+//        }
     }
 }
 
