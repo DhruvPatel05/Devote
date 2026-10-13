@@ -60,14 +60,19 @@ struct DevoteWidgetEntryView : View {
                     )
                     .padding(.top, 12)
                     .padding(.trailing,12)
-                Text("Just Do It")
-                    .foregroundColor(.white)
-                    .font(.system(.footnote, design: .rounded))
-                    .fontWeight(.bold)
-                    .padding(.horizontal,12)
-                    .padding(.vertical,4)
-                    .background()
-                
+                HStack {
+                    Text("Just Do It")
+                        .foregroundColor(.white)
+                        .font(.system(.footnote, design: .rounded))
+                        .fontWeight(.bold)
+                        .padding(.horizontal,12)
+                        .padding(.vertical,4)
+                        .background(
+                            Color(red:0,green: 0,blue:0,opacity: 0.5)
+                                .blendMode(.overlay)
+                        )
+                        .clipShape(Capsule())
+                }// HStack
             } // ZStack
         } // Geometry
 //        VStack {
