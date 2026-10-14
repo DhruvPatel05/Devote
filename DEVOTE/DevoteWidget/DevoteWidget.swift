@@ -73,6 +73,8 @@ struct DevoteWidgetEntryView : View {
                         )
                         .clipShape(Capsule())
                 }// HStack
+                .padding()
+                .offset(y: (geometry.size.height / 2) - 24)
             } // ZStack
         } // Geometry
 //        VStack {
