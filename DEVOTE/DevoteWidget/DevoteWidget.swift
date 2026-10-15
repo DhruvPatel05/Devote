@@ -75,7 +75,7 @@ struct DevoteWidgetEntryView : View {
                 HStack {
                     Text("Just Do It")
                         .foregroundColor(.white)
-                        .font(.system(.footnote, design: .rounded))
+                        .font(fontStyle)
                         .fontWeight(.bold)
                         .padding(.horizontal,12)
                         .padding(.vertical,4)
