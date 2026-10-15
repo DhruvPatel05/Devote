@@ -45,6 +45,14 @@ struct DevoteWidgetEntryView : View {
     var entry: Provider.Entry
 
     @Environment(\.widgetFamily) var widgetFamily
+    
+    var fontStyle: Font {
+        if widgetFamily == .systemSmall {
+            return .system(.footnote,design: .rounded)
+        } else {
+            return .system(.title,design: .rounded)
+        }
+    }
     var body: some View {
         GeometryReader { geometry in
             ZStack {
